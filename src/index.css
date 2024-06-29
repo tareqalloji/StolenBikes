@@ -1,3 +1,14 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+  html {  
+    @apply scroll-smooth;
+  }
+
+  body {
+    height: 100vh;
+    @apply bg-[#fafafa] font-nunito;
+  }
+}
