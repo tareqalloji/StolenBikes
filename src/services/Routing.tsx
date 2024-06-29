@@ -8,6 +8,7 @@ export default function Routing() {
       <Routes>
         <Route path="" element={<Layout />}>
           <Route path="/" element={<Index />} />
+          <Route path="/*" element={<Index />} />
         </Route>
       </Routes>
     </BrowserRouter>

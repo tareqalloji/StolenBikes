@@ -32,7 +32,7 @@ const Nav = () => {
           className="sm:hidden"
         />
         <NavbarBrand>
-          <BikeLogo />
+          <BikeLogo fill={"#fff"} />
         </NavbarBrand>
       </NavbarContent>
 
