@@ -9,7 +9,7 @@ import moment from "moment";
 import EmptyImage from "../assets/EmptyImage.svg";
 const HomeCard = (props: any) => {
   return (
-    <Card className="p-4" key={props.data.id}>
+    <Card className="p-4">
       <CardHeader className="pb-0 pt-2 px-4 flex-col items-start">
         <a
           className="font-bold text-large hover:underline hover:cursor-pointer line-clamp-1"
@@ -34,7 +34,7 @@ const HomeCard = (props: any) => {
         />
       </CardBody>
       <CardFooter className="grid grid-cols-1 md:grid-cols-2 gap-2">
-        <p className="font-semibold text-default-500 text-small">
+        <div className="font-semibold text-default-500 text-small">
           {props.data.status === "stolen" ? (
             <Chip color="danger" size="sm">
               Stolen
@@ -48,7 +48,7 @@ const HomeCard = (props: any) => {
               {props.data.status}
             </Chip>
           )}
-        </p>
+        </div>
         <div className="flex justify-end text-sm">
           <span className="font-semibold">Theft date:&nbsp;</span>
           {moment(new Date(props.data.date_stolen * 1000)).format("DD-MM-YYYY")}

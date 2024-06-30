@@ -3,6 +3,7 @@ import { useState } from "react";
 import { Get } from "../../Hooks/useBikes";
 import HomeCard from "../../components/HomeCard";
 import Loader from "../../components/Loader";
+import SearchBar from "../../components/SearchBar";
 const Index = () => {
   const [initialFilters, setInitialFilters] = useState({
     page: 1,
@@ -13,9 +14,15 @@ const Index = () => {
   if (Bikes.isFetching) return <Loader />;
   return (
     <>
+      <div className="px-5 pt-5">
+        <SearchBar />
+      </div>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 p-5">
-        {Bikes.data.length > 0 &&
-          Bikes.data.map((data: any) => <HomeCard data={data} />)}
+        {Bikes.data &&
+          Bikes.data.length > 0 &&
+          Bikes?.data?.map((data: any) => (
+            <HomeCard data={data} key={data.id} />
+          ))}
       </div>
       <div className="flex justify-center">
         <Pagination

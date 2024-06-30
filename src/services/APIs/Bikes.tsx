@@ -6,6 +6,10 @@ export class Bikes {
   async GetById(id: number) {
     return await getRequestWithParams(`${BASEURL}/bikes/${id}`, null);
   }
+
+  async Get_Counts() {
+    return await getRequestWithParams(`${BASEURL}/search/count`, null);
+  }
 }
 
 export const BikeInstance = new Bikes();
