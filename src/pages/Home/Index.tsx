@@ -16,7 +16,21 @@ const Index = () => {
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 p-5">
         {Bikes.data.length > 0 &&
           Bikes.data.map((data: any) => <HomeCard data={data} />)}
-      </div>      
+      </div>
+      <div className="flex justify-center">
+        <Pagination
+          total={initialFilters.page + 10}
+          initialPage={initialFilters.page}
+          className="my-2"
+          onChange={async (e: number) => {
+            await setInitialFilters((prevFilters) => ({
+              ...prevFilters,
+              page: e,
+            }));
+            Bikes.refetch();
+          }}
+        />
+      </div>
     </>
   );
 };
