@@ -7,7 +7,9 @@ const Layout = () => {
     <>
       <Toaster position="top-center" />
       <Nav />
-      <Outlet />
+      <div className="px-5">
+        <Outlet />
+      </div>
     </>
   );
 };
