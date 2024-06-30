@@ -25,13 +25,17 @@ const SearchBar = () => {
           emptyContent: Bikes.isFetching ? "Loading..." : "No cases found.",
         }}
       >
-        {Bikes?.data &&
+        {initialFilters != "" &&
+          Bikes?.data &&
           Bikes?.data?.map((item: any) => {
             return (
               <AutocompleteItem
                 key={item.id}
                 textValue={item.title}
-                onClick={() => navigate(`/Case/${item.id}`)}
+                onClick={() => {
+                  navigate(`/Case/${item.id}`);
+                  setInitialFilters("");
+                }}
               >
                 <div className="flex gap-2 items-center">
                   <Avatar
