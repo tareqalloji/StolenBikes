@@ -3,6 +3,8 @@ import { useState } from "react";
 import { RiSearchEyeLine } from "react-icons/ri";
 import { GetByTitle } from "../Hooks/useBikes";
 import { useNavigate } from "react-router-dom";
+import EmptyImage from "../assets/EmptyImage.svg";
+
 const SearchBar = () => {
   const [initialFilters, setInitialFilters] = useState("");
   const Bikes = GetByTitle(initialFilters);
@@ -36,7 +38,7 @@ const SearchBar = () => {
                     alt={item.title}
                     className="flex-shrink-0"
                     size="sm"
-                    src={item.large_img}
+                    src={item.large_img ? item.large_img : EmptyImage}
                   />
                   <div className="flex flex-col">
                     <span className="text-small">{item.title}</span>

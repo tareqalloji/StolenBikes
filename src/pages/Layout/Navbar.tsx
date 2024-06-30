@@ -11,10 +11,11 @@ import {
 } from "@nextui-org/react";
 import { useState } from "react";
 import { BikeLogo } from "../../components/BikeLogo";
+import { useNavigate } from "react-router-dom";
 
 const Nav = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-
+  const navigate = useNavigate();
   const menuItems = [
     "SEARCH BIKES",
     "BLOG",
@@ -31,7 +32,7 @@ const Nav = () => {
           aria-label={isMenuOpen ? "Close menu" : "Open menu"}
           className="sm:hidden"
         />
-        <NavbarBrand>
+        <NavbarBrand onClick={() => navigate("/")} className="cursor-pointer">
           <BikeLogo fill={"#fff"} />
         </NavbarBrand>
       </NavbarContent>
