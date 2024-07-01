@@ -24,7 +24,7 @@ const GetById = (id: number) => {
     return useQuery({
         retry: false,
         queryKey: ["Bikes", id],
-        queryFn: async () => await BikeInstance.GetById(id).then(res => res?.data.bike),
+        queryFn: async () => await BikeInstance.GetById(id).then(res => res?.data),
         onSuccess: () => toast.success('Bike details fetched successfully'),
         onError: handleError,
         refetchOnWindowFocus: false

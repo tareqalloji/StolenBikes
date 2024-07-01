@@ -1,9 +1,10 @@
 import { Pagination } from "@nextui-org/react";
 import { useState } from "react";
-import { Get } from "../../Hooks/useBikes";
+import { Get, GetCounts } from "../../Hooks/useBikes";
 import HomeCard from "../../components/HomeCard";
 import Loader from "../../components/Loader";
 import SearchBar from "../../components/SearchBar";
+import Counts from "../../components/Details/Counts";
 const Index = () => {
   const [initialFilters, setInitialFilters] = useState({
     page: 1,
@@ -11,9 +12,11 @@ const Index = () => {
     location: "Munich",
   });
   const Bikes = Get(initialFilters);
-  if (Bikes.isFetching) return <Loader />;
+  const Stats = GetCounts();
+  if (Bikes.isFetching || Stats.isFetching) return <Loader />;
   return (
     <>
+      <Counts stats={Stats} />
       <div className="px-5 pt-5">
         <SearchBar />
       </div>

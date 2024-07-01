@@ -11,16 +11,17 @@ const SearchBar = () => {
   const navigate = useNavigate();
   return (
     <>
+      <p className="text-2xl mb-5">Search for stolen Bikes</p>
       <Autocomplete
         variant="flat"
-        label="Find cases"
+        label="Find Bikes"
         isLoading={Bikes.isFetching}
         startContent={<RiSearchEyeLine className="text-xl" />}
         onInputChange={async (e) => {
           await setInitialFilters(e);
           Bikes.refetch();
         }}
-        placeholder="Search for..."
+        placeholder="Search for Bikes..."
         listboxProps={{
           emptyContent: Bikes.isFetching ? "Loading..." : "No cases found.",
         }}
