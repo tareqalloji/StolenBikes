@@ -54,7 +54,7 @@ const Details = () => {
             <CardBody className="overflow-visible py-2">
               <img
                 alt="Card background"
-                className="object-cover rounded-xl max-w-[500px] mx-auto"
+                className="object-cover rounded-xl max-w-full md:max-w-[500px] mx-auto"
                 src={Bike.data.large_img}
               />
               <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 p-5">
@@ -98,11 +98,11 @@ const Details = () => {
               </div>
               <Divider className="my-4" />
               <p className="text-base uppercase font-bold">Location</p>
-              {Bike?.data?.stolen_coordinates ? 
-              <Map center={Bike?.data?.stolen_coordinates} />
-              :
-              "Not located in map."
-              }
+              {Bike?.data?.stolen_coordinates ? (
+                <Map center={Bike?.data?.stolen_coordinates} />
+              ) : (
+                "Not located in map."
+              )}
               <Divider className="my-4" />
               <p className="text-base uppercase font-bold">Description</p>
               <small className="text-default-500 text-md">
