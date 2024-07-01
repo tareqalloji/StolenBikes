@@ -8,7 +8,7 @@
   }
 
   body {
-    height: 100vh;
+    min-height: 100vh;
     @apply bg-[#fafafa] font-nunito;
   }
 }

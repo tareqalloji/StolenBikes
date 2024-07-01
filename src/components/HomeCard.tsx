@@ -13,7 +13,7 @@ const HomeCard = (props: any) => {
       <CardHeader className="pb-0 pt-2 px-4 flex-col items-start">
         <a
           className="font-bold text-large hover:underline hover:cursor-pointer line-clamp-1"
-          href={`/Home/${props.data.id}`}
+          href={`/Case/${props.data.id}`}
         >
           {props.data.title}
         </a>
